@@ -16,4 +16,17 @@
    <% } %>
    <%- error %>
 </div>
+<script type='text/javascript'>
+    var rows = <%- JSON.stringify(data) %>;
+
+    function forecasts(forecast) {
+        let descriptions = [];
+        for (let i = 0; i < forecast.list.length; i++) {
+            descriptions.push(forecast.list[i].weather[0].main)
+        }
+        return descriptions;
+    }
+
+    var descriptions = forecasts(rows);
+  </script>
 <% include footer %>
